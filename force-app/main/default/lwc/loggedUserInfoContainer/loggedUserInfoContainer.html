@@ -1,0 +1,24 @@
+<template>
+    <div class="slds-box" style="background-color: white;">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-combobox
+                    placeholder="Select salutation"
+                    label="Salutation"
+                    options={options}
+                    onchange={selectField}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="7">
+                <c-logged-user-info field={selectedField} ongreeting={showPanel}></c-logged-user-info>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-small" size="2">
+                <template if:false={panelHidden}>
+                    <div class="slds-align_absolute-center">
+                        <span class="slds-text-heading_large slds-text-color_success">Hi received!</span>
+                    </div>
+                </template>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

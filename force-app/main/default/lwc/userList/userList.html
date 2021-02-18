@@ -1,0 +1,29 @@
+<template>
+    <div class="slds-box" style="background-color: white;">
+        <p class="slds-text-heading_large">Users List</p>
+        <br>
+        <ul class="slds-has-dividers_around-space">
+            <template for:each={users.data} for:item="user">
+                <li class="slds-item" key={user.Id}>
+                    <a onclick={selectUser} data-id={user.Id}>
+                        <article class="slds-tile slds-tile_board slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-avatar slds-avatar_circle slds-avatar_medium">
+                                    <img src={user.FullPhotoUrl} />
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <h3 class="slds-tile__title slds-truncate">
+                                    <span class="slds-text-heading_medium">{user.FirstName} {user.LastName}</span>
+                                </h3>
+                                <div class="slds-tile__detail">
+                                    <span>{user.Email}</span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>

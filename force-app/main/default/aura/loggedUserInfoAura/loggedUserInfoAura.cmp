@@ -1,0 +1,20 @@
+<aura:component controller="UserLightningController">
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.field}" action="{!c.doInit}"/>
+    
+    <aura:attribute name="field" type="String" />
+    <aura:attribute name="value" type="String" />
+
+    <aura:registerEvent name="greetingEvent" type="c:greetingEvent" />
+
+    <aura:if isTrue="{!v.value}">
+        <div class="slds-box">
+            <span class="slds-text-heading_medium">Welcome back <b>{!v.value}</b>!</span>
+            <div class="slds-float_right">
+                <button class="slds-button slds-button_brand" onclick="{!c.sayHi}">Say Hi</button>
+            </div>
+        </div>
+    </aura:if>
+
+</aura:component>	

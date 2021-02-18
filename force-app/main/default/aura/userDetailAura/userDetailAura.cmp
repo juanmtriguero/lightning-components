@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    
+    <aura:attribute name="userId" type="Id" />
+
+    <lightning:messageChannel type="UserMessageChannel__c" onMessage="{!c.userSelected}" scope="APPLICATION" />
+
+    <div class="slds-box" style="background-color: white;">
+        <p class="slds-text-heading_large">User Detail</p>
+        <br/>
+        <aura:if isTrue="{!v.userId}">
+            <lightning:recordForm
+                recordId="{!v.userId}"
+                objectApiName="User"
+                layoutType="Full"
+                mode="readonly">
+            </lightning:recordForm>
+            <aura:set attribute="else">
+                <span class="slds-text-color_error">Please, select a user from the list.</span>
+            </aura:set>
+        </aura:if>
+    </div>
+
+</aura:component>	

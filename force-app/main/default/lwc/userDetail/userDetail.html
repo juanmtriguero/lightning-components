@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-box" style="background-color: white;">
+        <p class="slds-text-heading_large">User Detail</p>
+        <br>
+        <template if:true={userId}>
+            <lightning-record-form
+                record-id={userId}
+                object-api-name="User"
+                layout-type="Full"
+                mode="readonly">
+            </lightning-record-form>
+        </template>
+        <template if:false={userId}>
+            <span class="slds-text-color_error">Please, select a user from the list.</span>
+        </template>
+    </div>
+</template>

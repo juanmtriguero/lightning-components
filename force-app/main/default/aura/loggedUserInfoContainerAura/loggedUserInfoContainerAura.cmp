@@ -1,0 +1,33 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="greetingEvent" event="c:greetingEvent" action="{!c.showPanel}"/>
+
+    <aura:attribute name="options" type="String[]" />
+    <aura:attribute name="selectedField" type="String" />
+    <aura:attribute name="panelHidden" type="Boolean" default="true" />
+    
+    <div class="slds-box" style="background-color: white;">
+        <lightning:layout>
+            <lightning:layoutItem padding="around-small" size="3">
+                <lightning:combobox
+                    placeholder="Select salutation"
+                    label="Salutation"
+                    options="{!v.options}"
+                    onchange="{!c.selectField}">
+                </lightning:combobox>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="7">
+                <c:loggedUserInfoAura field="{!v.selectedField}"></c:loggedUserInfoAura>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="2">
+                <aura:if isTrue="{!(!v.panelHidden)}">
+                    <div class="slds-align_absolute-center">
+                        <span class="slds-text-heading_large slds-text-color_success">Hi received!</span>
+                    </div>
+                </aura:if>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+
+</aura:component>	
